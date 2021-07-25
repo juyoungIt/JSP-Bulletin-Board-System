@@ -12,6 +12,7 @@ import javax.sql.DataSource;
 import dto.BbsDto;
 import dto.UserDto;
 
+
 public class BbsDao {
 
 	private DataSource ds;
@@ -19,13 +20,13 @@ public class BbsDao {
 	public BbsDao() {
 		try {
 			Context context = new InitialContext();
-			ds = (DataSource) context.lookup("java:comp/env/jdbc/Oracle11g");
+			ds = (DataSource) context.lookup("java:comp/env/jdbc/2021Camp");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
-	
+	// find exist id (is true -> return 1 / is false -> return 0)
 	public int existId(String id) {
 		
 		Connection con = null;
@@ -40,9 +41,9 @@ public class BbsDao {
 			rs = pstmt.executeQuery();
 			
 			if (rs.next())
-				return 1;	// 아이디 존재
+				return 1;
 			else
-				return 0;	// 아이디 부재
+				return 0;
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -56,7 +57,7 @@ public class BbsDao {
 			}
 		}
 		
-		return -1;	// db 오류
+		return -1;
 	}
 	
 	public int join(UserDto dto) {
@@ -87,7 +88,7 @@ public class BbsDao {
 			}
 		}
 		
-		return -1;	// db 오류
+		return -1;
 	}
 	
 	public int login(String id, String pw) {
@@ -105,11 +106,11 @@ public class BbsDao {
 			
 			if (rs.next()) {
 				if (rs.getString(1).equals(pw))
-					return 1;	// 성공
+					return 1;
 				else
-					return 0;	// 비밀번호 틀림
+					return 0;
 			} else {
-				return -1;		// 아이디가 존재하지 않음
+				return -1;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -123,7 +124,7 @@ public class BbsDao {
 			}
 		}
 		
-		return -2;	// db 오류
+		return -2;
 	}
 	
 	public UserDto getUser(String id) {
@@ -193,7 +194,7 @@ public class BbsDao {
 			}
 		}
 		
-		return -1;	// db 오류
+		return -1;
 	}
 	
 	public ArrayList<BbsDto> list(int pageNumber) {
@@ -205,7 +206,8 @@ public class BbsDao {
 		
 		try {
 			con = ds.getConnection();
-			String query = "select * from (select * from bbs where bId < ? order by bId desc) where rownum <= 10";
+			// String query = "select * from (select * from Term_project.bbs where bId < ? order by bId desc) where rownum <= 10";
+			String query = "select * from bbs where bId < ? order by bId desc LIMIT 10";
 			pstmt = con.prepareStatement(query);
 			pstmt.setInt(1, getNextBbsId() - (pageNumber - 1) * 10);
 			rs = pstmt.executeQuery();
@@ -295,12 +297,12 @@ public class BbsDao {
 			}
 		}
 		
-		return -1;	// db 오류
+		return -1;
 	}
 	
 	public BbsDto getContent(int bId, boolean view) {
 		
-		if (view == true)	// 게시글 클릭 했을 경우
+		if (view == true)
 			upHit(bId);
 		
 		Connection con = null;
@@ -366,7 +368,7 @@ public class BbsDao {
 			}
 		}
 		
-		return -1;	// db 오류
+		return -1;
 	}
 	
 	public int delete(int bId) {
@@ -393,7 +395,7 @@ public class BbsDao {
 			}
 		}
 		
-		return -1;	// db 오류
+		return -1;
 	}
 	
 	public int getNextBbsId() {
@@ -411,7 +413,7 @@ public class BbsDao {
 			if (rs.next())
 				return rs.getInt(1) + 1;
 			else
-				return 1;	// 첫 글일 경우
+				return 1;	// 첫 占쏙옙占쏙옙 占쏙옙占�
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -425,7 +427,7 @@ public class BbsDao {
 			}
 		}
 		
-		return -1;	// db 오류
+		return -1;
 	}
 	
 	public void upHit(int bId) {

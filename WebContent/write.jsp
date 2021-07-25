@@ -20,14 +20,14 @@
 			id = (String) session.getAttribute("id");
 	%>
 	
-	<nav class="navbar navbar-default">
+	<nav class="navbar navbar-default" style="background-color: rgb(35, 35, 35); border: 1px solid rgb(35, 35, 35); border-radius: 0px;">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="main.jsp">JSP 게시판 웹 사이트</a>
+			<a class="navbar-brand" href="main.jsp">카카오프렌즈</a>
 		</div>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
@@ -79,12 +79,12 @@
 							<td><input type="text" class="form-control" placeholder="글 제목" name="bTitle" maxlength="50"></td>
 						</tr>
 						<tr>
-							<td><textarea class="form-control" placeholder="글 내용" name="bContent" maxlength="2048" style="height:350px;"></textarea></td>
+							<td><textarea class="form-control" placeholder="글 내용" name="bContent" maxlength="2048" style="height:350px; resize: none;"></textarea></td>
 						</tr>
 					</tbody>
 				</table>
-				<a href="bbs.jsp" class="btn btn-primary">목록</a>
-				<input type="submit" class="btn btn-primary pull-right" value="글쓰기">
+				<a href="bbs.jsp" class="btn btn-primary" style="background-color: gold; color: black; border: 1px solid gold;">목록</a>
+				<input type="submit" class="btn btn-primary pull-right" value="글쓰기" style="background-color: gold; color: black; border: 1px solid gold;">
 			</form>
 		</div>
 	</div>

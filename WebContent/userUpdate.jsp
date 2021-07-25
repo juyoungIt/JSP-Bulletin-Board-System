@@ -33,14 +33,14 @@
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="js/bootstrap.js"></script>
 	
-	<nav class="navbar navbar-default">
+	<nav class="navbar navbar-default" style="background-color: rgb(35, 35, 35); border: 1px solid rgb(35, 35, 35); border-radius: 0px;">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="main.jsp">JSP 게시판 웹 사이트</a>
+			<a class="navbar-brand" href="main.jsp">카카오프렌즈</a>
 		</div>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
@@ -102,7 +102,7 @@
 					<div class="form-group">
 						<input type="email" class="form-control" placeholder="이메일" name="email"  maxlength="50" value="<%= dto.getEmail() %>">
 					</div>
-					<input type="submit" class="btn btn-primary form-control" value="수정">
+					<input type="submit" class="btn btn-primary form-control" value="수정" style="background-color: gold; color: black; border: 1px solid gold;">
 				</form>
 			</div>
 		</div>

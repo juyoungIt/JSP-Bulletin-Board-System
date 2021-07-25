@@ -34,14 +34,14 @@
 			pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
 	%>
 	
-	<nav class="navbar navbar-default">
+	<nav class="navbar navbar-default" style="background-color: rgb(35, 35, 35); border: 1px solid rgb(35, 35, 35); border-radius: 0px;">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="main.jsp">JSP 게시판 웹 사이트</a>
+			<a class="navbar-brand" href="main.jsp">카카오프렌즈</a>
 		</div>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
@@ -123,7 +123,7 @@
 			<%
 				}
 			%>
-			<a href="write.jsp" class="btn btn-primary pull-right">글쓰기</a>
+			<a href="write.jsp" class="btn btn-primary pull-right" style="background-color: gold; color: black; border: 1px solid gold;">글쓰기</a>
 		</div>
 	</div>
 </body>
